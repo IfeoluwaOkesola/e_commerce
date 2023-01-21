@@ -29,3 +29,9 @@ iii. Customer will be able to complete order but only if registered, if not cust
 
 i. Customer will be able to register details using full name, email and password.
 
+
+## Language/Database
+
+i. Nodejs
+ii. Mongodb
+
