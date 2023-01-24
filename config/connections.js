@@ -1,10 +1,18 @@
-const Sequelize = require('sequelize')
-const dotenv = require('dotenv')
-dotenv.config()
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-const sequelize = new Sequelize('ecommerce', process.env.DATABASE_USER,'Olabitan2017',{
-    dialect: 'mysql',
-    host:'localhost'
-})
+function dbConnection() {
+  mongoose.set('strictQuery', false);
+  mongoose.connect(process.env.DB_URL, { useNewUrlParser: true });
 
-module.exports = sequelize;
+  mongoose.connection.on('connected', () => {
+    console.log('Connection successful');
+  });
+
+  mongoose.connection.on('error', () => {
+    console.log(error);
+    console.log('An error occured');
+  });
+}
+
+module.exports = { dbConnection };
